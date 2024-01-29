@@ -5,9 +5,9 @@ from netCDF4 import Dataset
 import pandas as pd
 
 # Load your NetCDF file
-nc_file_path = 'files/single_files/SSTF/2022/353/16/OR_ABI-L2-SSTF-M6_G18_s20223531600212_e20223531659520_c20223531705430.nc'
+# nc_file_path = 'files/single_files/SSTF/2022/353/16/OR_ABI-L2-SSTF-M6_G18_s20223531600212_e20223531659520_c20223531705430.nc'
 # nc_file_path = '/Users/yashshah/Downloads/OR_ABI-L2-TPWF-M6_G16_s20240010000205_e20240010009513_c20240010011108.nc'
-# nc_file_path = 'files/single_files/LSTF/2023/069/07/OR_ABI-L2-LSTF-M6_G18_s20230690700208_e20230690709516_c20230690711253.nc'
+nc_file_path = 'files/single_files/LSTF/2023/069/07/OR_ABI-L2-LSTF-M6_G18_s20230690700208_e20230690709516_c20230690711253.nc'
 dataset = Dataset(nc_file_path)
 
 # lat_lon_file_path = 'goes16_abi_full_disk_lat_lon.nc'
@@ -72,7 +72,7 @@ lats = np.array(lats)
 lons = np.array(lons)
 # lat = lats
 # lon = lons
-variable = dataset.variables['SST'][:]
+variable = dataset.variables['LST'][:]
 fill_value = 0
 # variable = np.where(variable == None, fill_value, variable)
 # variable = np.where(variable == None, 0, variable)
@@ -98,7 +98,7 @@ m.drawcountries()
 
 # Set plot title
 plt.title('')
-plt.savefig('plot.png', bbox_inches='tight', pad_inches=-0.05)
+plt.savefig('LST.png', bbox_inches='tight', pad_inches=-0.05)
 # plt.savefig('output_plot.png', format='png', dpi=300, bbox_inches=(0.1, 0.1, 0.9, 0.9))
 # Show the plot
 plt.show()
